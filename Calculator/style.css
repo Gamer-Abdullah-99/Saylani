@@ -1,0 +1,261 @@
+*{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+@media screen and (min-width: 620px){
+
+    body{
+        margin: 0;
+        margin-top: 0;
+        padding: 0;
+        background-color: rgb(65, 65, 65);
+        height: 90vh;
+        overflow: hidden;
+    }
+    #maindiv{
+        padding-top: 100px;
+        /* padding-bottom: -100px; */
+        width: 100%;
+        margin: 0 auto;
+        background-color:rgb(0, 0, 0);
+        border-radius: 10px;
+        height: 100vh;
+        display: block;
+        /* align-content: ; */
+        
+    }
+    
+    #screen {
+        padding: 10px;
+        border: 2px solid rgb(211, 124, 9);
+        border-radius: 30px;
+        width: 90%;
+        height: 50px;
+        margin: 0 auto;
+        /* margin-top: 100px; */
+        margin-bottom: 20px;
+        font-size: 38px;
+        overflow: auto;
+        display: flex;
+        justify-content: flex-start;
+        color: rgb(211, 124, 9);
+        /* background-color: white; */
+    }
+    
+    
+    button {
+        border: 1px solid rgb(211, 124, 9);
+        height: 60px;
+        width: 120px;
+        margin-left: 10px; 
+        margin-right: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgb(211, 124, 9);
+        border-radius: 15px;
+        font-size: 24px;
+        margin-bottom: 10px;
+        font-weight: 700;
+    }
+    
+    button:hover{
+        color: rgb(0, 0, 0);
+        background-color: white;
+        border: 1px solid rgb(255, 255, 255);
+    }
+    #buttons{
+        /* margin-top: 100px; */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        width: 90%;
+        margin: 0 auto;
+    }
+    #b7{
+        order: 1;
+    }
+    #b8{
+        order: 2;
+    }
+    #b9{
+        order: 3;
+    }
+    #div{
+        order: 4;
+    }
+    #b4{
+        order: 5;
+    }
+    #b5{
+        order: 6;
+    }
+    #b6{
+        order: 7;
+    }
+    #mul{
+        order: 8;
+    }
+    #b1{
+        order: 9;
+    }
+    #b2{
+        order: 10;
+    }
+    #b3{
+        order: 11;
+    }
+    #sub{
+        order: 12;
+    }
+    #dec{
+        order: 13;
+    }
+    #b0{
+        order: 14;
+    }
+    #del{
+        order: 15;
+    }
+    #add{
+        order: 16;
+    }
+    #be{
+        order: 17;
+        width: 45%;
+    }
+    #ac{
+        order: 18;
+        width: 45%;
+    }
+    
+}
+
+@media  screen and (min-width:1200px) {
+    body{
+        margin: 0;
+        padding: 0;
+        background-color: rgb(65, 65, 65);
+    }
+    #maindiv{
+        padding-top: 30px;
+        width: 80%;
+        margin: 0 auto;
+        background-color:rgb(0, 0, 0);
+        border-radius: 10px;
+        height: 90vh;
+        
+    }
+    
+    #screen {
+        /* text-align: center; */
+        margin-top: 10px;
+        padding: 10px;
+        border: 2px solid rgb(211, 124, 9);
+        border-radius: 30px;
+        width: 90%;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        font-size: 38px;
+        overflow: auto;
+        display: flex;
+        justify-content: flex-start;
+        color: rgb(211, 124, 9);
+        /* background-color: white; */
+    }
+    
+    
+    button {
+        border: 1px solid rgb(211, 124, 9);
+        height: 60px;
+        width: 200px;
+        margin-left: 10px; 
+        margin-right: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgb(211, 124, 9);
+        border-radius: 15px;
+        font-size: 24px;
+        margin-bottom: 10px;
+        font-weight: 700;
+    }
+    button:hover{
+        color: rgb(0, 0, 0);
+        background-color: white;
+        border: 1px solid rgb(255, 255, 255);
+    }
+    
+    #buttons{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        width: 90%;
+        margin: 0 auto;
+    }
+    #b7{
+        order: 1;
+    }
+    #b8{
+        order: 2;
+    }
+    #b9{
+        order: 3;
+    }
+    #div{
+        order: 4;
+    }
+    #b4{
+        order: 5;
+    }
+    #b5{
+        order: 6;
+    }
+    #b6{
+        order: 7;
+    }
+    #mul{
+        order: 8;
+    }
+    #b1{
+        order: 9;
+    }
+    #b2{
+        order: 10;
+    }
+    #b3{
+        order: 11;
+    }
+    #sub{
+        order: 12;
+    }
+    #dec{
+        order: 13;
+    }
+    #b0{
+        order: 14;
+    }
+    #del{
+        order: 15;
+    }
+    #add{
+        order: 16;
+    }
+    #be{
+        order: 17;
+        width: 47%;
+    }
+    #ac{
+        order: 18;
+        width: 47%;
+    }
+    #t1{
+        padding-left: 10px;
+    }
+    
+    
+    
+    
+}
