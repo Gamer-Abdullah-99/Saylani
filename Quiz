@@ -1,0 +1,264 @@
+
+********************************************************* LOGIN AS STUDENT *******************************************************************
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div>
+        <h1>Login</h1>
+        <form action="">
+            <input type="text" name="username" value="" id="username" placeholder="Enter your name">
+            <br>
+        </form>
+        <button onclick="quiz()">Take Quiz</button>
+    </div>
+
+
+
+    <script src="app.js"></script>
+</body>
+
+</html>
+
+
+********************************************************* CREATE QUIZ  *******************************************************************
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div>
+        <h1>Create Quiz</h1>
+        <label for="">Enter question :<br><input type="text" name="question" value="" id="ques"><br></label>
+        <label for="">Option # 1 : <br><input type="text" name="opt1" value="" id="opt1"><br></label>
+        <label for="">Option # 2 : <br><input type="text" name="opt2" value="" id="opt2"><br></label>
+        <label for="">Option # 3 : <br><input type="text" name="opt3" value="" id="opt3"><br></label>
+        <label for="">Option # 4 : <br><input type="text" name="opt4" value="" id="opt4"><br></label>
+        <label for="">Correct option : <br><input type="text" name="cor-opt" value="" id="cor-opt"><br></label>
+        <button onclick="save()">Save</button>
+        <button onclick="done()">Done</button>
+    </div>
+
+
+
+
+    <script src="app.js"></script>
+    
+</body>
+</html>
+
+
+
+********************************************************* START QUIZ *******************************************************************
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Take Quiz</title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <div>
+        <h1><span>Max. Marks = 50</span>Student : <span id="std"></span></h1>
+    </div>
+    <div>
+        <!-- <span>0</span> -->
+        <h2 id="h2"><span>Qno. </span><span id="num">1</span> <span id="qs"></span></h2>
+    </div>
+    <div>
+        <p id="opt-1" onclick="getOptVal(this)"></p>
+        <p id="opt-2" onclick="getOptVal(this)"></p>
+        <p id="opt-3" onclick="getOptVal(this)"></p>
+        <p id="opt-4" onclick="getOptVal(this)"></p>
+     
+        <!-- <label for="" id="opt-4"><input type="radio" name="opt" value="" id="op4" onclick="getOptVal(this.value)"><span></span></label> -->
+    </div>
+    <div>
+        <button onclick="next()">Next</button>
+    </div>
+
+
+
+
+    <script src="app.js"></script>
+</body>
+
+</html>
+
+
+********************************************************* RESULT (NOT WORKING) *******************************************************************
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div>
+        Name : <span id="nameofstd">a</span>
+        Total Questions : <span id="totalQ">0</span>
+        Correct : <span id="correctQ">0</span>
+        Total Marks : <span id="Totalmarks">0</span>
+        Marks Obtained : <span id="marksobt">0</span>
+        Percentage : <span id="percentage">0</span>%
+        <button onclick="home()">HOME</button>
+    </div>
+
+
+
+    <script src="app.js"></script>
+</body>
+</html>
+
+
+********************************************************* APP.JS *********************************************************************************
+
+
+var q = document.getElementById("ques");
+var opt1 = document.getElementById("opt1");
+var opt2 = document.getElementById("opt2");
+var opt3 = document.getElementById("opt3");
+var opt4 = document.getElementById("opt4");
+var corrOpt = document.getElementById("cor-opt");
+var username = document.getElementById("username");
+var std = document.getElementById("std");
+var uName;
+var ques = [];
+var o1 = [];
+var o2 = [];
+var o3 = [];
+var o4 = [];
+var co = [];
+var quizInfo = {
+    questions: [],
+    option1: [],
+    option2: [],
+    option3: [],
+    option4: [],
+    correct: [],
+}
+function save() {
+    quizInfo.questions.push(q.value);
+    quizInfo.option1.push(opt1.value);
+    quizInfo.option2.push(opt2.value);
+    quizInfo.option3.push(opt3.value);
+    quizInfo.option4.push(opt4.value);
+    quizInfo.correct.push(corrOpt.value);
+    q.value = "";
+    opt1.value = "";
+    opt2.value = "";
+    opt3.value = "";
+    opt4.value = "";
+    corrOpt.value = "";
+    console.log(ques, o1, co)
+    localStorage.clear()
+    localStorage.setItem("Quiz", JSON.stringify(quizInfo));
+    // alert(quizInfo.questions)
+}
+
+function done() {
+    quizInfo.questions.push(q.value);
+    quizInfo.option1.push(opt1.value);
+    quizInfo.option2.push(opt2.value);
+    quizInfo.option3.push(opt3.value);
+    quizInfo.option4.push(opt4.value);
+    quizInfo.correct.push(corrOpt.value);
+    // localStorage.clear()
+    localStorage.setItem("Quiz", JSON.stringify(quizInfo));
+    window.location.href = "login.html"
+}
+function quiz() {
+    if (username.value === "" || username.value === " ") {
+        alert("Enter valid username!!")
+    }
+    else {
+        uName = username.value;
+        localStorage.setItem("username", JSON.stringify(uName))
+        window.location.href = "quiz.html";
+    }
+
+}
+std.innerHTML = JSON.parse(localStorage.getItem("username"));
+var Qs = JSON.parse(localStorage.getItem("Quiz"));
+// console.log(Qs)
+var num = 0;
+document.getElementById("qs").innerHTML = Qs.questions[0]
+document.getElementById("opt-1").innerHTML = Qs.option1[0]
+// document.getElementById("opt-1").value = Qs.option1[0]
+document.getElementById("opt-2").innerHTML = Qs.option2[0]
+// document.getElementById("opt-2").value = Qs.option2[0]
+document.getElementById("opt-3").innerHTML = Qs.option3[0]
+// document.getElementById("opt-3").value = Qs.option3[0]
+document.getElementById("opt-4").innerHTML = Qs.option4[0]
+// document.getElementById("opt-4").value = Qs.option4[0]
+
+var totalQues = Qs.questions.length;
+// console.log(totalQues)
+document.getElementById("nameofstd").innerHTML = JSON.parse(localStorage.getItem("username"));
+
+function next(){
+    document.getElementById("opt-1").style.backgroundColor = 'white';
+    num++
+    
+    if(num === totalQues){
+        window.location.href = "result.html";
+        console.log('Connected')
+        document.getElementById("totalQ").innerHTML = totalQues;
+    }
+    else{
+        document.getElementById("num").innerHTML = num
+        document.getElementById("qs").innerHTML = Qs.questions[num-1]
+        document.getElementById("opt-1").innerHTML = Qs.option1[num-1]
+        document.getElementById("opt-2").innerHTML = Qs.option2[num-1]
+        document.getElementById("opt-3").innerHTML = Qs.option3[num-1]
+        document.getElementById("opt-4").innerHTML = Qs.option4[num-1]
+    }
+}
+
+function home(){
+    window.location.href = 'login.html';
+}
+var result;
+var marks = 0;
+function getOptVal(event){
+    event.style.backgroundColor = 'red';
+    result = event.innerHTML;
+    for(var i = 0 ; i < totalQues; i++){
+        if(result === Qs.correct[num-1]){
+            marks = marks + 10;
+            document.getElementById("marksobt").innerHTML = marks;
+            break;
+        }
+        else if (num === totalQues){
+            break;
+        }
+    }
+}
+
+
+// console.log(document.getElementById('std-name').innerHTML)
+document.getElementById('Totalmarks').innerHTML = '50';
